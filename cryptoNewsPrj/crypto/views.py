@@ -1,6 +1,6 @@
 from django.shortcuts import render
 import requests
-import json,pprint
+import json
 
 # Create your views here.
 

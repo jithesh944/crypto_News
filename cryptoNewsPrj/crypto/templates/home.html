@@ -2,7 +2,14 @@
 
 {% block content %}
 <!-- <h1 style="color: blue;">Welcome to crypto news screen</h1> -->
-{{api_price.DISPLAY }}
+<!-- {{api_price.DISPLAY }} -->
+
+
+{% for key,value in api_price.DISPLAY.items %}
+    {{ value.USD.PRICE}}
+{% endfor %}
+<br>
+<br/>
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
       <h1 class="display-3">Explore crypto news</h1>
