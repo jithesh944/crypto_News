@@ -1,10 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1 style="color: blue;">Welcome to crypto news screen</h1>
+<!-- <h1 style="color: blue;">Welcome to crypto news screen</h1> -->
+{{api_price.DISPLAY }}
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-3">Explore crypto news</h1>
+      <p class="lead">Crypto currency new on your fingertip..</p>
+    </div>
+</div>
 <div class="container">
-    <div class="row" style=" display: flex;flex-wrap: wrap;">
-        {% for key in api.Data %}
+    <div class="row" >
+        {% for key in api_news.Data %}
         {% if key.body != '' %}
         <div class="col-sm-6 col-md-4 col-lg-4">
             <div class="thumbnail">
