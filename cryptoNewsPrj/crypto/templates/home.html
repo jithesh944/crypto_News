@@ -5,25 +5,68 @@
 <!-- {{api_price.DISPLAY }} -->
 
 
-{% for key,value in api_price.DISPLAY.items %}
-    <!-- {{ value.USD}} -->
-    <strong>Name: </strong>{{key}}<br/>
-    <!-- can be used to fetch JPY details -->
-    <!-- <strong>Price: </strong>{{ value.USD.PRICE}} {{ value.JPY.PRICE}}<br/> -->
-    <strong>Price: </strong>{{ value.USD.PRICE}}<br/>
-    <strong>Daily High: </strong>{{ value.USD.HIGHDAY}}<br/>
-    <strong>Daily Low: </strong>{{ value.USD.LOWDAY}}<br/>
-    <strong>market Cap: </strong>{{ value.USD.MKTCAP}}<br/>
-    <hr><br/>
-{% endfor %}
-<br>
-<br/>
+<!-- The jumbotron area -->
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
       <h1 class="display-3">Explore crypto news</h1>
       <p class="lead">Crypto currency new on your fingertip..</p>
     </div>
 </div>
+
+<!-- Currency selection area -->
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Currency
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" href="#">USD</a>
+      <a class="dropdown-item" href="#">JPY</a>
+      <a class="dropdown-item" href="#">EUR</a>
+    </div>
+  </div>
+<!-- Price details -->
+<!-- {% for key,value in api_price.DISPLAY.items %} -->
+    <!-- {{ value.USD}} -->
+    <!-- <strong>Name: </strong>{{key}}<br/> -->
+    <!-- can be used to fetch JPY details -->
+    <!-- <strong>Price: </strong>{{ value.USD.PRICE}} {{ value.JPY.PRICE}}<br/> -->
+    <!-- <strong>Price: </strong>{{ value.USD.PRICE}}<br/>
+    <strong>Daily High: </strong>{{ value.USD.HIGHDAY}}<br/>
+    <strong>Daily Low: </strong>{{ value.USD.LOWDAY}}<br/>
+    <strong>market Cap: </strong>{{ value.USD.MKTCAP}}<br/>
+    <hr><br/>
+{% endfor %}  -->
+<br>
+<br/>
+
+
+<!-- Tabular data -->
+<table class="table table-bordered table-striped table-dark">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Day High</th>
+        <th scope="col">Day Low</th>
+        <th scope="col">Market Cap</th>
+      </tr>
+    </thead>
+    {% for key,value in api_price.DISPLAY.items %}
+    <tbody>
+      <tr>
+        <th scope="row">{{key}}</th>
+        <td>{{ value.USD.PRICE }}</td>
+        <td>{{ value.USD.HIGHDAY }}</td>
+        <td>{{ value.USD.LOWDAY }}</td>
+        <td>{{ value.USD.MKTCAP }}</td>
+      </tr>
+    </tbody>
+    {% endfor %}
+  </table>
+
+
+
+<!-- News Area -->
 <div class="container">
     <div class="row" >
         {% for key in api_news.Data %}
