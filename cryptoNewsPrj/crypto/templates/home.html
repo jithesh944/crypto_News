@@ -6,7 +6,15 @@
 
 
 {% for key,value in api_price.DISPLAY.items %}
-    {{ value.USD.PRICE}}
+    <!-- {{ value.USD}} -->
+    <strong>Name: </strong>{{key}}<br/>
+    <!-- can be used to fetch JPY details -->
+    <!-- <strong>Price: </strong>{{ value.USD.PRICE}} {{ value.JPY.PRICE}}<br/> -->
+    <strong>Price: </strong>{{ value.USD.PRICE}}<br/>
+    <strong>Daily High: </strong>{{ value.USD.HIGHDAY}}<br/>
+    <strong>Daily Low: </strong>{{ value.USD.LOWDAY}}<br/>
+    <strong>market Cap: </strong>{{ value.USD.MKTCAP}}<br/>
+    <hr><br/>
 {% endfor %}
 <br>
 <br/>

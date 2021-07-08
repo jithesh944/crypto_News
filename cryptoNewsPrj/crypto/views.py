@@ -7,7 +7,7 @@ import json
 # The home screen view function
 def home(request):
     # Api call for getting Crypto Prices
-    api_price_request = requests.get('https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,XRP&tsyms=USD')
+    api_price_request = requests.get('https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,XRP,ETH,USDT,BNB,ADA,DOGE,BCH&tsyms=USD,JPY')
     api_price_data = json.loads(api_price_request.content)
 
 
