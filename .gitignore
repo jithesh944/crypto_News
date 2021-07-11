@@ -3,6 +3,7 @@ cryptoVENV/
 *.pyc
 *.sqlite3
 manage.py
+Test.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
