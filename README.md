@@ -6,10 +6,10 @@ It also featured on searching the Crypocurrency. The another main feature is tha
 Sample screenshots
 
 Front Screen1
-![alt text](http://example.com/image.png "Main Screen")
+![alt text](https://github.com/jithesh944/crypto_News/blob/master/screenshots/Main%20screen1.png "Main Screen")
 
 Front Screen 2
-![alt text](http://example.com/image.png "News")
+![alt text](https://github.com/jithesh944/crypto_News/blob/master/screenshots/News%20Screen.png "News")
 
 Searching Screen
-![alt text](http://example.com/image.png "Searching screen ")
+![alt text](https://github.com/jithesh944/crypto_News/blob/master/screenshots/Search%20screen.png "Searching screen ")
