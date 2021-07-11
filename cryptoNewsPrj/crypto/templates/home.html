@@ -54,8 +54,10 @@
 <br>
 <br />
 <!-- {{ api_price.DISPLAY }} -->
-{{ currency_selected }}
 
+<div>
+  <p style="font-style: italic; font-size: medium;">Selected Currency is {{ currency_selected }}</p>
+</div>
 <!-- Tabular data -->
 <table class="table table-bordered table-hover table-striped">
   <thead class="table-dark">
@@ -68,13 +70,13 @@
     </tr>
   </thead>
   <tbody>
-    {% for key,value in api_price.DISPLAY.items %}
+    {% for key,value in api_price.items %}
     <tr>
       <th scope="row">{{key}}</th>
-      <td>{{ value.USD.PRICE }}</td>
-      <td>{{ value.USD.HIGHDAY }}</td>
-      <td>{{ value.USD.LOWDAY }}</td>
-      <td>{{ value.USD.MKTCAP }}</td>
+      <td>{{ value.PRICE }}</td>
+      <td>{{ value.HIGHDAY }}</td>
+      <td>{{ value.LOWDAY }}</td>
+      <td>{{ value.MKTCAP }}</td>
     </tr>
     {% endfor %}
   </tbody>
