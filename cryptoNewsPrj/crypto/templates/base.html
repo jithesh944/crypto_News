@@ -47,10 +47,10 @@
             <a href="{% url 'home' %}">Home</a>
           </li>
         </ul>
-        <form class="navbar-form navbar-right" method ="POST" action="{% url 'prices' %}" >
+        <form class="navbar-form navbar-right" method="POST" action="{% url 'prices' %}">
           {% csrf_token %}
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search Crypto" name ="quote">
+            <input type="text" class="form-control" placeholder="Search Crypto" name="quote">
           </div>
           <button type="submit" class="btn btn-default">Submit</button>
         </form>
@@ -61,6 +61,13 @@
     </div><!-- /.container-fluid -->
   </nav>
 
+  <!-- The jumbotron area -->
+  <div class="jumbotron jumbotron-fluid" style="background-color: black; color: white;">
+    <div class="container text-white bg-dark">
+      <h1 class="display-3">Explore crypto news</h1>
+      <p class="lead">Crypto currency new on your fingertip..</p>
+    </div>
+  </div>
   <br />
   <div class="container">
     {% block content %}

@@ -1,4 +1,65 @@
 {% extends 'base.html' %}
 
+
 {% block content %}
+
+{% if notFound %}
+
+<div>
+    <h2 style="border: 5px; color-adjust: 10px; color: brown;"> {{ notFound }}</h2>
+</div>
+{% else %}
+{% if quote.Response %}
+<div class="container" style="color: rgba(75, 12, 12, 0.824);">
+    <h2>Error occured. Given Crypto symbol is not available.The error message -</h2>
+    <h4>{{ quote.Message }}</h4>
+</div>
+
+{% else %}
+
+<div>
+    <h2 style="border: 5px; color-adjust: 10px; color: brown;"> The searched data are given below..</h2>
+</div>
+
+<!-- Tabular data -->
+<table class="table table-bordered table-hover table-striped">
+    <thead class="table-dark">
+        <tr style=" font-size: medium;color: rgb(38, 81, 191);">
+            <th rowspan="2" scope="col">Name</th>
+            <th colspan="2" scope="col">Price</th>
+            <th colspan="2" scope="col">Day High</th>
+            <th colspan="2" scope="col">Day Low</th>
+            <th colspan="2" scope="col">Market Cap</th>
+        </tr>
+        <tr style="color: rgb(61, 53, 96);">
+            <th>JPY</th>
+            <th>USD</th>
+            <th>JPY</th>
+            <th>USD</th>
+            <th>JPY</th>
+            <th>USD</th>
+            <th>JPY</th>
+            <th>USD</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for key,value in quote.DISPLAY.items %}
+        <tr>
+            <th scope="row">{{key}}</th>
+            <td>{{ value.JPY.PRICE }}</td>
+            <td>{{ value.USD.PRICE }}</td>
+            <td>{{ value.JPY.HIGHDAY }}</td>
+            <td>{{ value.USD.HIGHDAY }}</td>
+            <td>{{ value.JPY.LOWDAY }}</td>
+            <td>{{ value.USD.LOWDAY }}</td>
+            <td>{{ value.JPY.MKTCAP }}</td>
+            <td>{{ value.USD.MKTCAP }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+
+{% endif %}
+
 {% endblock %}

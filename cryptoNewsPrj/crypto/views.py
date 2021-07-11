@@ -1,7 +1,6 @@
 from django.shortcuts import render
 import requests
 import json
-from django.http import HttpResponse, response
 import os.path  
 
 
@@ -37,8 +36,17 @@ def home(request):
 def prices(request):
 
     if request.method == "POST":
-        quote = request.POST['quote']
-        return render(request,'prices.html',{})
+        quote = (request.POST['quote'])
+        quote_price_request = requests.get('https://min-api.cryptocompare.com/data/pricemultifull?fsyms='+ quote.upper() + '&tsyms=USD,JPY')
+        quote_price_data = json.loads(quote_price_request.content)
+        # print(response.text())
+        # if ((quote_price_data['Response'] == "Error") or (quote_price_data['DISPLAY'])):
+        #     print("Status code",quote_price_request.content)
+        #     # quote_error_data = quote_price_request
+        #     return render(request,'prices.html',{"error":quote_price_data['Message']})
+        # else:
+        return render(request,'prices.html',{"quote":quote_price_data})
     
     else:
-        return render(request,'prices.html',{})
+        not_found = "Enter the crypto currency in the search field.."
+        return render(request,'prices.html',{"notFound":not_found})
